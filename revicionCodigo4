@@ -1,0 +1,56 @@
+package org.generation.revicionCodigo;
+//Importar scanner
+import java.util.Scanner;
+
+public class Codigo4 {
+	//De entrada, lleva método main para ejecutarse
+	public static void main(String[] args) {
+	
+			//Cambio en el escanner, para leer desde la consola y solo 1. 
+	        Scanner s = new Scanner(System.in);
+	        
+	       //solitud de jugador 1
+	        System.out.print("Turno del jugador 1 (introduzca piedra, papel o tijeras): ");
+	        String j1 = s.nextLine().toLowerCase();
+
+	        // Solicitud de jugador 2
+	        System.out.print("Turno del jugador 2 (introduzca piedra, papel o tijeras): ");
+	        String j2 = s.nextLine().toLowerCase();
+	        
+	        // Comparar si ambos jugadores han elegido la misma opción y se  cambia el == por el equals porque compara 
+	        //contenido de cadenas
+	        if (j1.equals(j2)) {
+	            System.out.println("Empate");
+	        } else {
+	            int g = 2; 
+
+	            // Evaluar la opción de j1 para determinar el ganador
+	            switch (j1) {
+	                case "piedra":
+	                    if (j2.equals("tijeras")) {
+	                        g = 1;
+	                    }
+	                    //para romper con el ciclo	
+	                    break;
+	                case "papel":
+	                    if (j2.equals("piedra")) {
+	                        g = 1;
+	                    }
+	                    break;
+	                case "tijeras":
+	                    if (j2.equals("papel")) {
+	                        g = 1;
+	                    }
+	                    break;
+	                default:
+	                    System.out.println("Entrada no válida de jugador 1.");
+	                    s.close();
+	                    return;
+	            }
+	            System.out.println("Gana el jugador " + g);
+	        }
+	        
+	        s.close(); // Cerrar el Scanner
+	    	}
+
+}
